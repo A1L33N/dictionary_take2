@@ -29,6 +29,9 @@ class Word
    found_word
   end
 
+  define_method(:delete) do
+    @@all_words.delete(self)
+  end
 
 
 

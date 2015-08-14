@@ -7,6 +7,8 @@ describe Word do
     Word.clear
   end
 
+  @@all_words = []
+
   describe "#word" do
     it 'returns an entered word and accounts for mixed case inputs' do
       new_word = Word.new({:word => 'ProGram'})
@@ -26,7 +28,7 @@ describe Word do
       new_word.save
       new_word2 = Word.new({:word => 'refactor'})
       new_word2.save
-      expect(Word.all).to eq([new_word, new_word2])
+      expect(@@all_words).to eq([new_word, new_word2])
     end
   end
 
@@ -63,4 +65,16 @@ describe Word do
     end
   end
 
+  describe "#delete" do
+    it 'deletes a word from the list of words' do
+      new_word = Word.new({:word => 'caffeine'})
+      new_word.save
+      new_word2 = Word.new({:word => 'espresso'})
+      new_word2.save
+      new_word3 = Word.new({:word => 'cortado'})
+      new_word3.save
+      new_word2.delete
+      expect(@@all_words).to eq([new_word, new_word3])
+    end
+  end
 end
