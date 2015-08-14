@@ -1,10 +1,11 @@
 class Word
-  attr_reader :word, :id
+  attr_reader :word, :id, :definitions
   @@all_words = []
 
  define_method(:initialize) do |attributes|
    @word = attributes.fetch(:word).downcase
    @id = @@all_words.length.+(1)
+   @definitions = []
  end
 
  define_singleton_method(:all) do
@@ -33,6 +34,9 @@ class Word
     @@all_words.delete(self)
   end
 
+  define_method(:add_definition) do |definition|
+    @definitions.push(definition)
+  end
 
 
 
