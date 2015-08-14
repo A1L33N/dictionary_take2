@@ -19,5 +19,18 @@ class Word
    @@all_words = []
  end
 
+ define_singleton_method(:find) do |id_number|
+   found_word = nil
+   @@all_words.each() do |word|
+     if id_number.eql?((word.id).to_i)
+     found_word = word
+     end
+   end
+   found_word
+  end
+
+
+
+
 
 end

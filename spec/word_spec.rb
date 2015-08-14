@@ -41,13 +41,25 @@ describe Word do
     end
   end
 
-  describe "id" do
+  describe "#id" do
     it 'assigns an id to each word' do
       new_word = Word.new({:word => 'caffeine'})
       new_word.save
       new_word2 = Word.new({:word => 'espresso'})
       new_word2.save
       expect(new_word2.id).to eq(2)
+    end
+  end
+
+  describe ".find" do
+    it 'finds a word from a list of words based on an id number' do
+      new_word = Word.new({:word => 'caffeine'})
+      new_word.save
+      new_word2 = Word.new({:word => 'espresso'})
+      new_word2.save
+      new_word3 = Word.new({:word => 'cortado'})
+      new_word3.save
+      expect(Word.find(2)).to eq(new_word2)
     end
   end
 
