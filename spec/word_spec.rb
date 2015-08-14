@@ -11,4 +11,10 @@ describe Word do
     end
   end
 
+  describe ".all" do
+    it 'returns an empty array at first' do
+      expect Word.all.to eq []
+    end
+  end
+
 end
