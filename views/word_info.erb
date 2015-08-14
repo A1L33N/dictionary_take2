@@ -1,14 +1,14 @@
-<h1><%=@word.word %></h1>
+<h1><%=@word.word.capitalize %></h1>
 
 <h2>Definitions</h2>
 
 <ol>
-  <% @word.definitions.each() do |word| %>
-    <li>(Type: <%= word.type %>) <%= word.definition %></li>
+  <% @word.definitions.each() do |definition| %>
+    <li>Type: <%= definition.type %> - <%= definition.definition %></li>
   <% end %>
 </ol>
 
-<h3>Add a New Definition:</h3>
+<h4>Add a New Definition:</h4>
 <form action="/word_info" method="post">
   <input id='word_id' name='word_id' type='hidden' value='<%= @word.id() %>'>
 
@@ -22,4 +22,5 @@
 <button type="submit">Add Definition</button>
 </form>
 
+<!-- <a href="/clear_definitions" input id='word_id' name='word_id' type='hidden' value='<%= @word.id() %>'>clear ALL definitions</a> -->
 <a href="/">Return to Dictionary Home</a>

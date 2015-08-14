@@ -36,6 +36,8 @@ end
 
 
 # get('/clear_definitions') do
-#   Definition.clear
-#   erb(:word_info)
-# end
+#   @word = Word.find(params.fetch('word_id').to_i)
+#   (@word.definitions).each() do |definition|
+#     definition.clear
+#   end
+#   erb(:index)
