@@ -3,7 +3,7 @@ require 'pry'
 require 'definition'
 
 describe Definition do
-#  @@all_definitions = []
+  @@all_definitions = []
 
   describe "#definition" do
     it 'returns a definition' do
@@ -12,7 +12,7 @@ describe Definition do
     end
   end
 
-  describe "type" do
+  describe "#type" do
     it 'returns the type of definition' do
       program = Definition.new({:definition => "A planned series of future events, items, or PErformance", :type => 'noun'})
       expect(program.type).to eq("noun")
@@ -26,6 +26,15 @@ describe Definition do
     end
   end
 
+  describe "#save" do
+    it 'saves a definition to an array' do
+      program = Definition.new({:definition => "A planned series of future events, items, or PErformance", :type => 'noun'})
+      program.save
+      program2  = Definition.new({:definition => "arrange according to a plan or schedule.", :type => 'verb'})
+      program2.save
+      expect(@@all_definitions).to eq([program, program2])
 
+    end
+  end
 
 end
