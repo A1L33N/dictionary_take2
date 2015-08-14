@@ -14,7 +14,7 @@ describe('the dictionary path', {type: :feature}) do
 
 end
 
-describe('the word path') do
+describe('the word path', {type: :feature}) do
   it 'will add a user inputed definition to a word info page' do
     visit('/word_info/:id')
     fill_in('new_definition', with: 'ride a bicycle')

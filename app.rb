@@ -26,6 +26,13 @@ get('/word_info/:id') do
   erb(:word_info)
 end
 
+post('/word_info') do
+  @word = Word.find(params.fetch('word_id').to_i)
+  @new_definition = Definition.new({:definition => params.fetch('new_definition'), :type => params.fetch('word_type')})
+  @new_definition.save
+  @word.add_definition(@new_definition)
+  erb(:word_info)
+end
 
 
 # get('/clear_definitions') do
