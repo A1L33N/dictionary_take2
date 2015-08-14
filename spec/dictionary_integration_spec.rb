@@ -13,3 +13,12 @@ describe('the dictionary path', {type: :feature}) do
 
 
 end
+
+describe('the word path') do
+  it 'will add a user inputed definition to a word info page' do
+    visit('/word_info/:id')
+    fill_in('new_definition', with: 'ride a bicycle')
+    click_button('Add Definition')
+    expect(page).to have_content('ride a bicyle')
+  end
+end

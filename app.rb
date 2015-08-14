@@ -20,3 +20,8 @@ get('/clear_words') do
   Word.clear
   erb(:index)
 end
+
+get('/word_info/:id') do
+  @word = Word.find(params.fetch('id').to_i)
+  erb(:word_info)
+end
