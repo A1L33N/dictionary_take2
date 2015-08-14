@@ -3,6 +3,9 @@ require 'pry'
 require 'word'
 
 describe Word do
+  before do
+    Word.clear
+  end
 
   describe "#word" do
     it 'returns an entered word and accounts for mixed case inputs' do
@@ -35,6 +38,16 @@ describe Word do
       new_word2.save
       Word.clear
       expect(Word.all).to eq([])
+    end
+  end
+
+  describe "id" do
+    it 'assigns an id to each word' do
+      new_word = Word.new({:word => 'caffeine'})
+      new_word.save
+      new_word2 = Word.new({:word => 'espresso'})
+      new_word2.save
+      expect(new_word2.id).to eq(2)
     end
   end
 
