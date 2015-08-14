@@ -25,3 +25,10 @@ get('/word_info/:id') do
   @word = Word.find(params.fetch('id').to_i)
   erb(:word_info)
 end
+
+
+
+# get('/clear_definitions') do
+#   Definition.clear
+#   erb(:word_info)
+# end

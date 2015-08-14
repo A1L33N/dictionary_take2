@@ -2,4 +2,19 @@
 
 <h3>Definitions:</h3>
 
+<form action="/word_info/:id" method="post">
+  <input id='word_info' name='word_info' type='hidden' value='<%= @word.id() %>'>
+
+  <label for='word_info'>Definition:</label>
+  <input id='word_info' name='word_info' type='text'>
+
+  <label for='word_type'>Word type(noun, verb, adverb, adjective):</label>
+  <input id='word_type' name='word_type' type='text'>
+
+  <button type="submit">Add Definition</button>
+</form>
+
+
+
+<!-- <a href="/clear_definitions">Clear ALL Definitions</a> -->
 <a href="/">Return to Dictionary List</a>
