@@ -27,4 +27,15 @@ describe Word do
     end
   end
 
+  describe ".clear" do
+    it 'clears all words from the array of saved words' do
+      new_word = Word.new({:word => 'caffeine'})
+      new_word.save
+      new_word2 = Word.new({:word => 'espresso'})
+      new_word2.save
+      Word.clear
+      expect(Word.all).to eq([])
+    end
+  end
+
 end
