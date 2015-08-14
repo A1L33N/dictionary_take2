@@ -10,5 +10,9 @@ class Word
    @@all_words
  end
 
+ define_method(:save) do
+   @@all_words.push(self)
+ end
+
 
 end

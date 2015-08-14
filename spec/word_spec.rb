@@ -13,7 +13,17 @@ describe Word do
 
   describe ".all" do
     it 'returns an empty array at first' do
-      expect Word.all.to eq []
+      expect(Word.all).to eq([])
+    end
+  end
+
+  describe "#save" do
+    it 'saves a word to an array of words' do
+      new_word = Word.new({:word => 'ProGram'})
+      new_word.save
+      new_word2 = Word.new({:word => 'refactor'})
+      new_word2.save
+      expect(Word.all).to eq([new_word, new_word2])
     end
   end
 
