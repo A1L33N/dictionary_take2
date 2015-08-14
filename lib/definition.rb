@@ -20,4 +20,8 @@ class Definition
     @@all_definitions = []
   end
 
+  define_method(:delete) do
+    @@all_definitions.delete(self)
+  end
+
 end

@@ -47,4 +47,17 @@ describe Definition do
     end
   end
 
+  describe "#delete" do
+    it 'deletes a definition from a list of saved definitions' do
+      program = Definition.new({:definition => "A planned series of future events, items, or PErformance", :type => 'noun'})
+      program.save
+      program2  = Definition.new({:definition => "arrange according to a plan or schedule.", :type => 'verb'})
+      program2.save
+      program3  = Definition.new({:definition => "a sheet or booklet giving details of items or performers at an event or performance.", :type => 'noun'})
+      program3.save
+      program2.delete
+      expect(@@all_definitions).to eq([program, program3])
+    end
+  end
+
 end
