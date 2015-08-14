@@ -83,9 +83,11 @@ describe Word do
     it 'adds a definition to an array of definitions for a word' do
       test_word = Word.new({:word => 'program'})
       test_word.save
-      test_word.add_definition("a planned series of future events, items, or performances.")
-      test_word.add_definition("arrange according to a plan or schedule.")
-      expect(test_word.definitions). to eq(["a planned series of future events, items, or performances.", "arrange according to a plan or schedule." ])
+      program = Definition.new({:definition => "A planned series of future events, items, or PErformance", :type => 'noun'})
+      program2  = Definition.new({:definition => "arrange according to a plan or schedule.", :type => 'verb'})
+      test_word.add_definition(program)
+      test_word.add_definition(program2)
+      expect(test_word.definitions).to eq([program, program2])
 
     end
   end
