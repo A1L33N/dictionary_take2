@@ -8,7 +8,7 @@ describe('the dictionary path', {type: :feature}) do
     visit('/')
     fill_in('new_word', with: 'cycle')
     click_button('Add Word')
-    expect(page).to have_content('cycle')
+    expect(page).to have_content('Your new word has been added!')
   end
 
 
