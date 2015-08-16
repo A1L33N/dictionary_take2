@@ -79,7 +79,7 @@ describe Word do
     end
   end
 
-  describe "add_definition" do
+  describe "#add_definition" do
     it 'adds a definition to an array of definitions for a word' do
       test_word = Word.new({:word => 'program'})
       test_word.save
@@ -89,6 +89,19 @@ describe Word do
       test_word.add_definition(program2)
       expect(test_word.definitions).to eq([program, program2])
 
+    end
+  end
+
+  describe ".clear_definitions" do
+    it 'deletes all definitions from a word' do
+      test_word = Word.new({:word => 'program'})
+      test_word.save
+      program = Definition.new({:definition => "A planned series of future events, items, or PErformance", :type => 'noun'})
+      program2  = Definition.new({:definition => "arrange according to a plan or schedule.", :type => 'verb'})
+      test_word.add_definition(program)
+      test_word.add_definition(program2)
+
+      expect(test_word.clear_definitions.definitions).to eq([])
     end
   end
 end

@@ -50,10 +50,14 @@ end
 # end
 
 post ('/clear_definitions') do
-  @word = Word.find(params.fetch('clear').to_i)
+  id = params.fetch('clear')
+  @word = Word.find(id.to_i())
+  @word.clear_definitions()
+
+  #@word = Word.find(params.fetch('clear').to_i)
   #(@word.definitions).each() do |definition|
   #  definition.delete
   #  end
-  Definition.clear
+  #Definition.clear
   redirect('/word_info/' + @word.id().to_s())
 end

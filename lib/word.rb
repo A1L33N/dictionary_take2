@@ -38,6 +38,8 @@ class Word
     @definitions.push(definition)
   end
 
-
+  define_method(:clear_definitions) do
+    @definitions = []
+  end
 
 end
