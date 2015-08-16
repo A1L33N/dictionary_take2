@@ -22,5 +22,10 @@
 <button type="submit">Add Definition</button>
 </form>
 
+<form action="/clear_definitions" method="post">
+  <input id='clear' name='clear' type='hidden' value='<%= @word.id() %>'>
+<button type="submit">Clear ALL definitions</button>
+</form>
+
 <!-- <a href="/clear_definitions" input id='word_id' name='word_id' type='hidden' value='<%= @word.id() %>'>clear ALL definitions</a> -->
 <a href="/">Return to Dictionary Home</a>

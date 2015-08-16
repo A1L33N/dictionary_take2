@@ -35,9 +35,25 @@ post('/word_info') do
 end
 
 
-# get('/clear_definitions') do
-#   @word = Word.find(params.fetch('word_id').to_i)
-#   (@word.definitions).each() do |definition|
-#     definition.clear
-#   end
-#   erb(:index)
+# post('/clear_definitions') do
+#    @word = Word.find(params.fetch('word_id').to_i)
+#    (@word.definitions).each() do |definition|
+#     @word = Word.find(params.fetch('clear').to_i)
+#     (@word.definitions).each() do |definition|
+#       definition.save
+#     end
+#     Definition.clear
+#
+#
+#   # end
+#   erb(:word_info)
+# end
+
+post ('/clear_definitions') do
+  @word = Word.find(params.fetch('clear').to_i)
+  #(@word.definitions).each() do |definition|
+  #  definition.delete
+  #  end
+  Definition.clear
+  redirect('/word_info/' + @word.id().to_s())
+end
