@@ -23,7 +23,7 @@ Find the four digit port number
 
 Then open your web browser and go to "http://localhost:"" with the port number at the end of the url
 
-OR go to "Heroku" in your browser.
+OR go to "http://damp-dusk-2828.herokuapp.com/" in your browser.
 
 
 Technologies Used
